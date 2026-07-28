@@ -9,7 +9,7 @@ require (
 	git.torproject.org/pluggable-transports/goptlib.git v1.3.0
 	github.com/Doridian/water v1.6.1
 	github.com/apex/log v1.9.0
-	github.com/google/go-cmp v0.5.9
+	github.com/google/go-cmp v0.7.0
 	github.com/google/gopacket v1.1.19
 	github.com/google/martian v2.1.0+incompatible
 	github.com/google/uuid v1.3.0
