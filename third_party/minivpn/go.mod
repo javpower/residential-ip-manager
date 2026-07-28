@@ -16,7 +16,7 @@ require (
 	github.com/jackpal/gateway v1.0.11 // pinned to a previous version until we can use go1.21
 	github.com/refraction-networking/utls v1.8.3-0.20260301010127-aa6edf4b11af
 	gitlab.com/yawning/obfs4.git v0.0.0-20220904064028-336a71d6e4cf
-	golang.org/x/net v0.38.0
+	golang.org/x/net v0.57.0
 	golang.org/x/sync v0.6.0
 	golang.zx2c4.com/wireguard v0.0.0-20231211153847-12269c276173 // indirect
 )
@@ -38,8 +38,8 @@ require (
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
 	gitlab.com/yawning/edwards25519-extra.git v0.0.0-20211229043746-2f91fcc9fbdb // indirect
-	golang.org/x/crypto v0.36.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/crypto v0.54.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	golang.zx2c4.com/wintun v0.0.0-20230126152724-0fa3db229ce2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
