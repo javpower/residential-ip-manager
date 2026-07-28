@@ -17,7 +17,7 @@ require (
 	github.com/refraction-networking/utls v1.8.3-0.20260301010127-aa6edf4b11af
 	gitlab.com/yawning/obfs4.git v0.0.0-20220904064028-336a71d6e4cf
 	golang.org/x/net v0.38.0
-	golang.org/x/sync v0.6.0
+	golang.org/x/sync v0.22.0
 	golang.zx2c4.com/wireguard v0.0.0-20231211153847-12269c276173 // indirect
 )
 
