@@ -46,7 +46,7 @@ jobs:
         run: sh scripts/build_go.sh
 
       - name: Upload workflow artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ResidentialIPManager-Go-${{ github.ref_name }}
           path: |
