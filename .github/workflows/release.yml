@@ -1,0 +1,70 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  go-release:
+    name: Build Go cross-platform release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26.x"
+          cache: true
+
+      - name: Quality checks
+        run: |
+          files=$(find cmd internal -type f -name '*.go')
+          test -z "$(gofmt -l $files)"
+          go vet ./...
+          go test ./...
+          (cd third_party/minivpn && go vet ./...)
+          (cd third_party/minivpn && go test ./...)
+          go run golang.org/x/vuln/cmd/govulncheck@v1.6.0 ./...
+          (cd third_party/minivpn && go run golang.org/x/vuln/cmd/govulncheck@v1.6.0 ./...)
+
+      - name: Build release artifacts
+        env:
+          VERSION: ${{ github.ref_name }}
+          OUT_DIR: dist/go
+        run: sh scripts/build_go.sh
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ResidentialIPManager-Go-${{ github.ref_name }}
+          path: |
+            dist/go/rim-*
+            dist/go/packages/*
+            dist/go/service/**
+            dist/go/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          name: Residential IP Manager Go ${{ github.ref_name }}
+          generate_release_notes: true
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          files: |
+            dist/go/rim-*
+            dist/go/packages/*
+            dist/go/service/**
+            dist/go/SHA256SUMS.txt

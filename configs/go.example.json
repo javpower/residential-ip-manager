@@ -1,0 +1,71 @@
+{
+  "deployment": {
+    "mode": "gateway",
+    "auto_start_vmess": true,
+    "auto_connect_exit": true
+  },
+  "server": {
+    "listen": "127.0.0.1:8899",
+    "session_secret": "replace-with-a-long-random-session-secret"
+  },
+  "auth": {
+    "username": "admin",
+    "password": "replace-with-a-strong-password"
+  },
+  "data": {
+    "dir": ""
+  },
+  "vpngate": {
+    "api_url": "https://www.vpngate.net/api/iphone/",
+    "max_nodes": 300
+  },
+  "classifier": {
+    "enabled": true,
+    "strict_home_only": true,
+    "timeout_ms": 10000,
+    "max_concurrency": 50
+  },
+  "probe": {
+    "timeout_ms": 3000,
+    "max_concurrency": 64,
+    "samples": 3
+  },
+  "failover": {
+    "enabled": true,
+    "max_attempts": 5,
+    "cooldown_seconds": 300,
+    "health_check_seconds": 20,
+    "failure_threshold": 2
+  },
+  "verify": {
+    "enabled": true,
+    "api_url": "http://ip-api.com/json/?fields=status,message,query,country,countryCode,isp,as,asname,proxy,hosting,mobile",
+    "timeout_ms": 10000
+  },
+  "openvpn": {
+    "username": "vpn",
+    "password": "vpn",
+    "connect_timeout_ms": 45000,
+    "mtu": 1420,
+    "dns_servers": ["1.1.1.1", "8.8.8.8"]
+  },
+  "subscription": {
+    "enabled": true,
+    "listen": "0.0.0.0:8898",
+    "token": "replace-with-random-subscription-token",
+    "host": "auto",
+    "port": 10086,
+    "uuid": "replace-with-v4-uuid",
+    "alter_id": 0,
+    "security": "auto",
+    "network": "tcp"
+  },
+  "proxy_core": {
+    "enabled": true,
+    "type": "embedded",
+    "listen": "0.0.0.0",
+    "log_level": "warning",
+    "local_socks_enabled": true,
+    "local_socks_listen": "127.0.0.1:1080"
+  }
+}
