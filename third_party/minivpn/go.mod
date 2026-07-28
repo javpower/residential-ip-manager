@@ -12,7 +12,7 @@ require (
 	github.com/google/go-cmp v0.5.9
 	github.com/google/gopacket v1.1.19
 	github.com/google/martian v2.1.0+incompatible
-	github.com/google/uuid v1.3.0
+	github.com/google/uuid v1.6.0
 	github.com/jackpal/gateway v1.0.11 // pinned to a previous version until we can use go1.21
 	github.com/refraction-networking/utls v1.8.3-0.20260301010127-aa6edf4b11af
 	gitlab.com/yawning/obfs4.git v0.0.0-20220904064028-336a71d6e4cf
