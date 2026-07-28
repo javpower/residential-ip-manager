@@ -17,6 +17,8 @@ The deployed machine first connects to a VPNGate/OpenVPN exit. It then exposes a
 
 ## Quick Start
 
+中文用户请直接阅读：[中文快速上手](docs/QUICK_START_ZH.md)。
+
 ```bash
 go run ./cmd/rim config init --output config.json
 go run ./cmd/rim serve --config config.json
